@@ -41,8 +41,8 @@ public class UsuarioController {
 		return repositorys.save(usuario);
 	}
 	
-	@DeleteMapping("/usuario/{idUsuario}")
-	public void deletePerson(@PathVariable("idUsuario") Long id) {
+	@DeleteMapping("/usuario/{id_Usuario}")
+	public void deletePerson(@PathVariable("id_Usuario") Long id) {
 		repositorys.deleteById(id);
 	}
 

@@ -16,8 +16,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Usuario {
 	@Id
-	@Column(name = "idUsuario")
-	private Long idUsuario;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String idUsuario;
 	
 	@Column(name = "Nombre")
 	private String nombre;
@@ -41,8 +41,7 @@ public class Usuario {
 
 	}
 
-	public Usuario(Long idUsuario, String nombre, String apellido, String correo, String clave, String avatar, String estado) {
-		this.idUsuario = idUsuario;
+	public Usuario(String id,String nombre, String apellido, String correo, String clave, String avatar, String estado) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
@@ -51,11 +50,11 @@ public class Usuario {
 		this.estado = estado;
 	}
 	
-	public Long getId() {
+	public String getId() {
 		return idUsuario;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.idUsuario = id;
 	}
 
