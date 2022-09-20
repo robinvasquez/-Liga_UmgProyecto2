@@ -37,7 +37,7 @@ public class UsuarioController {
 	}
 	
 	@PutMapping("/usuario/{idUsuario}")
-	public Usuario updatePerson(@PathVariable int idUsuario ,@RequestBody Usuario usuario) {
+	public Usuario updatePerson(@PathVariable Long idUsuario ,@RequestBody Usuario usuario) {
 		return repositorys.save(usuario);
 	}
 	
