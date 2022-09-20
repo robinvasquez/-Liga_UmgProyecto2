@@ -15,38 +15,44 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class liga {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id_Liga;
+	private Long id_Liga;
 	
 	@Column(name = "id_Usuario")
-	private String id_Usuario;
+	private Long id_Usuario;
 	
 	@Column(name = "Nombre")
 	private String Nombre;
 	
 	@Column(name = "Estado")
-	private String Estado;
+	private Long Estado;
 	
 	
 	public liga() {
 		
 	}
-	public liga(String id,String id_Usuario, String Nombre, String Estado) {
+	public liga(Long id,Long id_Usuario, String Nombre, Long Estado) {
+		this.id_Liga=id;
+		this.id_Usuario = id_Usuario;
+		this.Nombre = Nombre;
+		this.Estado = Estado;
+	}
+	public liga(Long id_Usuario, String Nombre, Long Estado) {
 		this.id_Usuario = id_Usuario;
 		this.Nombre = Nombre;
 		this.Estado = Estado;
 	}
 	
 	
-	public String getId_Liga() {
+	public Long getId_Liga() {
 		return id_Liga;
 	}
-	public void setId_Liga(String id_Liga) {
+	public void setId_Liga(Long id_Liga) {
 		this.id_Liga = id_Liga;
 	}
-	public String getId_Usuario() {
+	public Long getId_Usuario() {
 		return id_Usuario;
 	}
-	public void setId_Usuario(String id_Usuario) {
+	public void setId_Usuario(Long id_Usuario) {
 		this.id_Usuario = id_Usuario;
 	}
 	public String getNombre() {
@@ -55,10 +61,10 @@ public class liga {
 	public void setNombre(String nombre) {
 		Nombre = nombre;
 	}
-	public String getEstado() {
+	public Long getEstado() {
 		return Estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(Long estado) {
 		Estado = estado;
 	}
 	@Override

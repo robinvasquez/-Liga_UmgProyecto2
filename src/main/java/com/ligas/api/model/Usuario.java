@@ -35,13 +35,13 @@ public class Usuario {
 	private String avatar;
 	
 	@Column(name = "Estado")
-	private String estado;
+	private Long estado;
 	
 	public Usuario() {
 
 	}
 
-	public Usuario(Long id,String nombre, String apellido, String correo, String clave, String avatar, String estado) {
+	public Usuario(Long id,String nombre, String apellido, String correo, String clave, String avatar, Long estado) {
 		this.idUsuario=id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -50,7 +50,7 @@ public class Usuario {
 		this.avatar = avatar;
 		this.estado = estado;
 	}
-	public Usuario(String nombre, String apellido, String correo, String clave, String avatar, String estado) {
+	public Usuario(String nombre, String apellido, String correo, String clave, String avatar, Long estado) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
@@ -109,11 +109,11 @@ public class Usuario {
 		this.avatar = avatar;
 	}
 	
-	public String getEstado() {
+	public Long getEstado() {
 		return estado;
 	}
 	
-	public void setEstado(String estado) {
+	public void setEstado(Long estado) {
 		this.estado = estado;
 	}
 

@@ -32,7 +32,7 @@ public class participanteligaController {
 		return repositorys.save(participanteliga);
 	}
 	@PutMapping("/participante/{id_ParticipanteLiga}")
-	public participanteliga updateParticipante(@PathVariable int id_ParticipanteLiga ,@RequestBody participanteliga participanteliga) {
+	public participanteliga updateParticipante(@PathVariable Long id_ParticipanteLiga ,@RequestBody participanteliga participanteliga) {
 		return repositorys.save(participanteliga);
 	}
 	@DeleteMapping("/participante/{id_ParticipanteLiga}")

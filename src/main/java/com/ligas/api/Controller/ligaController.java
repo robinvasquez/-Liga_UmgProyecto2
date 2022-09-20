@@ -29,7 +29,7 @@ public class ligaController {
 		return repositorys.save(liga);
 	}
 	@PutMapping("/liga/{id_Liga}")
-	public liga updateliga(@PathVariable int id_Liga ,@RequestBody liga liga) {
+	public liga updateliga(@PathVariable Long id_Liga ,@RequestBody liga liga) {
 		return repositorys.save(liga);
 	}
 	@DeleteMapping("/liga/{id_Liga}")
