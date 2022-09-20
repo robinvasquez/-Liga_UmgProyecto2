@@ -1,5 +1,6 @@
 package com.ligas.api.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,24 @@ public class UsuarioController {
 	@PostMapping("/usuario")
 	public Usuario createPerson(@RequestBody Usuario usuario) {
 		return repositorys.save(usuario);
+	}
+	@PostMapping("/usuario/{correo}/{clave}")
+	public Boolean valMail(@PathVariable String correo,@PathVariable String clave) {
+		Boolean validador=false;
+		String correolista="";
+		String clavelista="";
+		List<Usuario> lista =allPersons();
+		for(int i=0;i<lista.size();i++) {
+			correolista=lista.get(i).getcorreo();
+			if(correo.equals(correolista)) {
+				clavelista=lista.get(i).getClave();
+				if(clave.equals(clavelista)) {
+					validador=true;
+					i=lista.size();
+				}
+			}
+		}
+		return validador;
 	}
 	
 	@PutMapping("/usuario/{idUsuario}")
