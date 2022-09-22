@@ -1,5 +1,6 @@
 package com.ligas.api.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ligas.api.model.Usuario;
+import com.ligas.api.model.participanteliga;
 import com.ligas.api.model.solicitudesliga;
 import com.ligas.api.repository.UsuarioRepository;
 import com.ligas.api.repository.solicitudesligaRepository;
@@ -27,6 +29,29 @@ public class solicitudesligaController {
 	public List<solicitudesliga> allPersons(){
 		return repositorys.findAll();
 	}
+	@GetMapping("/missolicitudes/{idUsuario}")
+	public List<solicitudesliga> getMisSolicitudes(@PathVariable Long idUsuario) {
+		List<solicitudesliga> missolicitudes =repositorys.findAll();
+		List<solicitudesliga> missolicitudes2=new ArrayList<solicitudesliga>();
+		for(int i=0;i<missolicitudes.size();i++) {
+			if(missolicitudes.get(i).getIdUsuario()==idUsuario) {
+				missolicitudes2.add(missolicitudes.get(i));
+			}
+		}		
+		return missolicitudes2;	
+	}
+	@GetMapping("/solicitudesliga/{idliga}")
+	public List<solicitudesliga> getSolicitudesLiga(@PathVariable Long idliga) {
+		List<solicitudesliga> solicitudesliga =repositorys.findAll();
+		List<solicitudesliga> solicitudesliga2=new ArrayList<solicitudesliga>();
+		for(int i=0;i<solicitudesliga.size();i++) {
+			if(solicitudesliga.get(i).getIdliga()==idliga) {
+				solicitudesliga2.add(solicitudesliga.get(i));
+			}
+		}		
+		return solicitudesliga2;	
+	}
+	
 	@PostMapping("/solicitud")
 	public solicitudesliga createPerson(@RequestBody solicitudesliga solicitudesliga) {
 		return repositorys.save(solicitudesliga);
