@@ -30,10 +30,23 @@ public class UsuarioController {
 	public List<Usuario> allPersons(){
 		return repositorys.findAll();
 	}
+	
 	/*@GetMapping("/usuario/{name}")
 	public List<Usuario> findByname(@PathVariable("name") String name) {
 		return repositorys.findByName(name);
 	}*/
+	@GetMapping("/usuario/{idusuario}")
+	public Usuario getUserbyid(@PathVariable Long idusuario) {
+		Usuario usuario= new Usuario();
+		List<Usuario> lista =allPersons();
+		for(int i=0;i<lista.size();i++) {
+			if(lista.get(i).getId()==idusuario) {
+				usuario=lista.get(i);
+			}
+		}
+		return usuario;		
+	}
+	
 	
 	@PostMapping("/usuario")
 	public Usuario createPerson(@RequestBody Usuario usuario) {

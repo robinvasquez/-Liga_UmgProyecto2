@@ -24,6 +24,17 @@ public class ligaController {
 	public List<liga> allPersons(){
 		return repositorys.findAll();
 	}
+	@GetMapping("/liga/{idliga}")
+	public liga getLigabyid(@PathVariable Long idliga) {
+		liga liga= new liga();
+		List<liga> lista =allPersons();
+		for(int i=0;i<lista.size();i++) {
+			if(lista.get(i).getId_Liga()==idliga) {
+				liga=lista.get(i);
+			}
+		}
+		return liga;		
+	}
 	@GetMapping("/ligasUsuario/{idusuario}")
 	public List<liga> getLiga(@PathVariable Long idusuario) {
 		List<liga> liga =repositorys.findAll();
