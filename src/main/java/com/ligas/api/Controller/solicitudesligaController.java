@@ -46,7 +46,11 @@ public class solicitudesligaController {
 		List<solicitudesliga> solicitudesliga2=new ArrayList<solicitudesliga>();
 		for(int i=0;i<solicitudesliga.size();i++) {
 			if(solicitudesliga.get(i).getIdliga()==idliga) {
-				solicitudesliga2.add(solicitudesliga.get(i));
+				if(solicitudesliga.get(i).getEstado()==0) {
+					solicitudesliga2.add(solicitudesliga.get(i));
+				}
+				
+				
 			}
 		}		
 		return solicitudesliga2;	
