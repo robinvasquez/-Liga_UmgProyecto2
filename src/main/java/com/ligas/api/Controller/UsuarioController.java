@@ -74,7 +74,26 @@ public class UsuarioController {
 		}
 		return usuario;
 	}
-	
+	@PostMapping("/usuariologin/{correo}/{clave}")
+	public Boolean valMail2(@PathVariable String correo,@PathVariable String clave) {
+		Boolean respuesta=false;
+		String correolista="";
+		String clavelista="";
+		List<Usuario> lista =allPersons();
+		for(int i=0;i<lista.size();i++) {
+			correolista=lista.get(i).getcorreo();
+			if(correo.equals(correolista)) {
+				clavelista=lista.get(i).getClave();
+				if(clave.equals(clavelista)) {
+					respuesta=true;
+					//usuario=lista.get(i);
+					i=lista.size();
+							
+				}
+			}
+		}
+		return respuesta;
+	}
 	@PutMapping("/usuario/{idUsuario}")
 	public Usuario updatePerson(@PathVariable Long idUsuario ,@RequestBody Usuario usuario) {
 		return repositorys.save(usuario);
