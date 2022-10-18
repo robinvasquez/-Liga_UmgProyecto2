@@ -37,11 +37,14 @@ public class Usuario {
 	@Column(name = "Estado")
 	private Long estado;
 	
+	@Column(name = "tipo_usuario")
+	private Long tipoUsuario;
+	
 	public Usuario() {
 
 	}
 
-	public Usuario(Long id,String nombre, String apellido, String correo, String clave, String avatar, Long estado) {
+	public Usuario(Long id,String nombre, String apellido, String correo, String clave, String avatar, Long estado, Long tipoUsuario) {
 		this.idUsuario=id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -49,14 +52,16 @@ public class Usuario {
 		this.clave = clave;
 		this.avatar = avatar;
 		this.estado = estado;
+		this.tipoUsuario = tipoUsuario;
 	}
-	public Usuario(String nombre, String apellido, String correo, String clave, String avatar, Long estado) {
+	public Usuario(String nombre, String apellido, String correo, String clave, String avatar, Long estado, Long tipoUsuario) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
 		this.clave = clave;
 		this.avatar = avatar;
 		this.estado = estado;
+		this.tipoUsuario = tipoUsuario;
 	}
 	
 	
@@ -116,10 +121,17 @@ public class Usuario {
 	public void setEstado(Long estado) {
 		this.estado = estado;
 	}
+	public Long getTipoUsuario() {
+		return tipoUsuario;
+	}
+	
+	public void setTipoUsuario(Long tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
 
 	
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", Nombre=" + nombre + ", Apellido=" + apellido + ", Correo=" + correo +", Clave=" + clave +", Avatar=" + avatar +", Estado=" + estado + "]";
+		return "Usuario [idUsuario=" + idUsuario + ", Nombre=" + nombre + ", Apellido=" + apellido + ", Correo=" + correo +", Clave=" + clave +", Avatar=" + avatar +", Estado=" + estado +", tipo_usuario=" + tipoUsuario + "]";
 	}
 }
