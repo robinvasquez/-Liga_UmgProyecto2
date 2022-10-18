@@ -6,6 +6,6 @@ import org.springframework.data.repository.query.Param;
 import com.ligas.api.model.Partido;
 
 
-public interface PartidoRepository extends JpaRepository<Partido, Long> {
+public interface PartidoRepository  {
 	
 }

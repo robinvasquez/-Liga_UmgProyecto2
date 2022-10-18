@@ -6,6 +6,6 @@ import org.springframework.data.repository.query.Param;
 import com.ligas.api.model.Partidolive;
 
 
-public interface PartidoliveRepository extends JpaRepository<Partidolive, Long> {
+public interface PartidoliveRepository {
 	
 }

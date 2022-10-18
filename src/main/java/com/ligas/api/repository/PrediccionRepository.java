@@ -5,6 +5,6 @@ import org.springframework.data.repository.query.Param;
 import com.ligas.api.model.Prediccion;
 
 
-public interface PrediccionRepository extends JpaRepository<Prediccion, Long> {
+public interface PrediccionRepository {
 	
 }
