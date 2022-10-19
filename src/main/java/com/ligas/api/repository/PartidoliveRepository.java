@@ -7,6 +7,6 @@ import com.ligas.api.model.Partidolive;
 import com.ligas.api.model.liga;
 
 
-public interface PartidoliveRepository extends JpaRepository<Partidolive, Long> {
+public interface PartidoliveRepository{
 	
 }
