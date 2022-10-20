@@ -47,5 +47,6 @@ public class PrediccionController {
 	public Prediccion updatePrediccion(@PathVariable Long id_prediccion ,@RequestBody Prediccion Prediccion) {
 		return PrediccionRepository.save(Prediccion);
 	}
+	
 
 }
