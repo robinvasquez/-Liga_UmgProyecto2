@@ -13,18 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ligas.api.model.*;
 import com.ligas.api.repository.*;
+import com.ligas.api.Controller.*;
 @RestController
 @RequestMapping("/api")
 public class PartidoController {
 	@Autowired
 	private PartidoRepository PartidoRepositorys;
+	private PartidoliveController partidolivecontroller= new PartidoliveController() ;
 	
 	@GetMapping("/partido")
 	public List<Partido> allPersons(){
 		return PartidoRepositorys.findAll();
 	}
 	@GetMapping("/partido/{idpartido}")
-	public Partido getLigabyid(@PathVariable Long idpartido) {
+	public Partido getPartido(@PathVariable Long idpartido) {
 		Partido Partido= new Partido();
 		List<Partido> lista =allPersons();
 		for(int i=0;i<lista.size();i++) {
@@ -36,7 +38,19 @@ public class PartidoController {
 	}
 	@PostMapping("/partido")
 	public Partido createPerson(@RequestBody Partido Partido) {
-		return PartidoRepositorys.save(Partido);
+		Partido partido= PartidoRepositorys.save(Partido);
+		/*Partidolive partidolive=new Partidolive(partido.getId_Partido(),partido.getPaisA(),partido.getPaisB(),partido.getFecha(),partido.getHora());
+		
+		Partidolive res=partidolivecontroller.createPartidolive(partidolive);
+		
+		return partido;*/
+		return partido;
+		
 	} 
+
+	@PutMapping("/partido/{id_partido}")
+	public Partido updatepartido(@PathVariable Long id_partido ,@RequestBody Partido partido) {
+		return PartidoRepositorys.save(partido);
+	}
 	
 }
