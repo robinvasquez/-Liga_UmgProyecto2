@@ -33,7 +33,7 @@ public class PartidoliveController {
 		Partidolive Partido= new Partidolive();
 		List<Partidolive> lista =allPersons();
 		for(int i=0;i<lista.size();i++) {
-			if(lista.get(i).getId_Partidolive()==idpartidolive) {
+			if(lista.get(i).getId_Partidolive().equals(idpartidolive)) {
 				Partido=lista.get(i);
 			}
 		}

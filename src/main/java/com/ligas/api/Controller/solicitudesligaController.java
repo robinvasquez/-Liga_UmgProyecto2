@@ -34,7 +34,7 @@ public class solicitudesligaController {
 		List<solicitudesliga> missolicitudes =repositorys.findAll();
 		List<solicitudesliga> missolicitudes2=new ArrayList<solicitudesliga>();
 		for(int i=0;i<missolicitudes.size();i++) {
-			if(missolicitudes.get(i).getIdUsuario()==idUsuario) {
+			if(missolicitudes.get(i).getIdUsuario().equals(idUsuario)) {
 				missolicitudes2.add(missolicitudes.get(i));
 			}
 		}		
@@ -45,7 +45,7 @@ public class solicitudesligaController {
 		List<solicitudesliga> solicitudesliga =repositorys.findAll();
 		List<solicitudesliga> solicitudesliga2=new ArrayList<solicitudesliga>();
 		for(int i=0;i<solicitudesliga.size();i++) {
-			if(solicitudesliga.get(i).getIdliga()==idliga) {
+			if(solicitudesliga.get(i).getIdliga().equals(idliga)) {
 				if(solicitudesliga.get(i).getEstado()==0) {
 					solicitudesliga2.add(solicitudesliga.get(i));
 				}

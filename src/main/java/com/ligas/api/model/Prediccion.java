@@ -18,7 +18,7 @@ public class Prediccion {
 	
 
 	@Column(name = "id_Partido")
-	private Long id_Partido;
+	private Integer id_Partido;
 	
 	@Column(name = "id_Usuario")
 	private Long id_Usuario;
@@ -35,7 +35,7 @@ public class Prediccion {
 	public Prediccion() {
 	}
 	
-	public Prediccion(Long id_Partido, Long id_Usuario, Long resA, Long resB, Long puntos) {
+	public Prediccion(Integer id_Partido, Long id_Usuario, Long resA, Long resB, Long puntos) {
 		this.id_Partido =id_Partido;
 		this.id_Usuario =id_Usuario;
 		this.resA =resA;
@@ -51,11 +51,11 @@ public class Prediccion {
 		this.id_Prediccion = id_Prediccion;
 	}
 
-	public Long getId_Partido() {
+	public Integer getId_Partido() {
 		return id_Partido;
 	}
 
-	public void setId_Partido(Long id_Partido) {
+	public void setId_Partido(Integer id_Partido) {
 		this.id_Partido = id_Partido;
 	}
 

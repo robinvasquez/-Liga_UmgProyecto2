@@ -29,7 +29,7 @@ public class ligaController {
 		liga liga= new liga();
 		List<liga> lista =allPersons();
 		for(int i=0;i<lista.size();i++) {
-			if(lista.get(i).getId_Liga()==idliga) {
+			if(lista.get(i).getId_Liga().equals(idliga)) {
 				liga=lista.get(i);
 			}
 		}
@@ -40,7 +40,7 @@ public class ligaController {
 		List<liga> liga =repositorys.findAll();
 		List<liga> ligausuario=new ArrayList<liga>();
 		for(int i=0;i<liga.size();i++) {
-			if(liga.get(i).getId_Usuario()==idusuario) {
+			if(liga.get(i).getId_Usuario().equals(idusuario)) {
 				ligausuario.add(liga.get(i));
 			}
 		}		

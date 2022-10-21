@@ -40,7 +40,7 @@ public class UsuarioController {
 		Usuario usuario= new Usuario();
 		List<Usuario> lista =allPersons();
 		for(int i=0;i<lista.size();i++) {
-			if(lista.get(i).getId()==idusuario) {
+			if(lista.get(i).getId().equals(idusuario)) {
 				usuario=lista.get(i);
 			}
 		}

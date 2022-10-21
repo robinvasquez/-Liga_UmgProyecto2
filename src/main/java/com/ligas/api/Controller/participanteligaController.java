@@ -35,7 +35,7 @@ public class participanteligaController {
 		List<participanteliga> participantes =repositorys.findAll();
 		List<participanteliga> participantes2=new ArrayList<participanteliga>();
 		for(int i=0;i<participantes.size();i++) {
-			if(participantes.get(i).getId_Liga()==idLiga) {
+			if(participantes.get(i).getId_Liga().equals(idLiga)) {
 				participantes2.add(participantes.get(i));
 			}
 		}		
@@ -47,7 +47,7 @@ public class participanteligaController {
 		List<participanteliga> misligas =repositorys.findAll();
 		List<participanteliga> misligas2=new ArrayList<participanteliga>();
 		for(int i=0;i<misligas.size();i++) {
-			if(misligas.get(i).getId_Usuario()==idUsuario) {
+			if(misligas.get(i).getId_Usuario().equals(idUsuario)) {
 				misligas2.add(misligas.get(i));
 			}
 		}		

@@ -31,7 +31,7 @@ public class PrediccionController {
 		Prediccion Prediccion= new Prediccion();
 		List<Prediccion> lista =allPersons();
 		for(int i=0;i<lista.size();i++) {
-			if(lista.get(i).getId_Prediccion()==id_prediccion) {
+			if(lista.get(i).getId_Prediccion().equals(id_prediccion)) {
 				Prediccion=lista.get(i);
 			}
 		}
@@ -43,10 +43,32 @@ public class PrediccionController {
 		return Prediccion;		
 	} 
 
-	@PutMapping("/prediccion/{id_prediccion}")
+	@PostMapping("/prediccion/{id_prediccion}")
 	public Prediccion updatePrediccion(@PathVariable Long id_prediccion ,@RequestBody Prediccion Prediccion) {
-		return PrediccionRepository.save(Prediccion);
+		
+		Prediccion p= new Prediccion();
+		List<Prediccion> listp =allPersons();
+		for(int i=0;i<listp.size();i++) {
+			if(listp.get(i).getId_Prediccion().equals(id_prediccion)) {
+				p=listp.get(i);
+			}
+		}
+		p.setResB(Prediccion.getPuntos());
+
+		return PrediccionRepository.save(p);
 	}
 	
+	@GetMapping("/prediccionporpartido/{id_Partido}")
+	public List<Prediccion> getprediccionporpartido(@PathVariable Long id_Partido) {
+		Integer x=id_Partido.intValue();
+		List<Prediccion> lista =allPersons();
+		List<Prediccion> listaparticipantes =allPersons();
+		for(int i=0;i<lista.size();i++) {
+			if(lista.get(i).getId_Partido().equals(x)) {
+				listaparticipantes.add(lista.get(i));
+			}
+		}
+		return listaparticipantes;		
+	}
 
 }
