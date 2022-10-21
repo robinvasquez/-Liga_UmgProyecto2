@@ -54,7 +54,7 @@ public class PrediccionController {
 				p=listp.get(i);
 			}
 		}
-		p.setResB(Prediccion.getPuntos());
+		p.setPuntos(Prediccion.getPuntos());
 
 		return PrediccionRepository.save(p);
 	}
