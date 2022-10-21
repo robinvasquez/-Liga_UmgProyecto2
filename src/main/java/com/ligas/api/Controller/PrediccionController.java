@@ -1,5 +1,6 @@
 package com.ligas.api.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,13 +63,24 @@ public class PrediccionController {
 	public List<Prediccion> getprediccionporpartido(@PathVariable Long id_Partido) {
 		Integer x=id_Partido.intValue();
 		List<Prediccion> lista =allPersons();
-		List<Prediccion> listaparticipantes =allPersons();
+		List<Prediccion> listaparticipantes=new ArrayList<Prediccion>();
 		for(int i=0;i<lista.size();i++) {
 			if(lista.get(i).getId_Partido().equals(x)) {
 				listaparticipantes.add(lista.get(i));
 			}
 		}
 		return listaparticipantes;		
+	}
+	@GetMapping("/prediccionporusuario/{id_Usuario}")
+	public List<Prediccion> getprediccionporusuario(@PathVariable Long id_Usuario) {
+		List<Prediccion> lista =allPersons();
+		List<Prediccion> listaapuestasuser =new ArrayList<Prediccion>();
+		for(int i=0;i<lista.size();i++) {
+			if(lista.get(i).getId_Usuario().equals(id_Usuario)) {
+				listaapuestasuser.add(lista.get(i));
+			}
+		}
+		return listaapuestasuser;		
 	}
 
 }
