@@ -60,6 +60,7 @@ public class PartidoController {
 		}
 		p.setResA(partido.getResA());
 		p.setResB(partido.getResB());
+		p.setEstado(partido.getEstado());
 
 		return PartidoRepositorys.save(p);
 	}
