@@ -88,25 +88,26 @@ public class PrediccionController {
 		List<Prediccion> listaapuestasuser =new ArrayList<Prediccion>();
 		
 		for(int i=0;i<lista.size();i++) {
-			Long total =0L;
-			Prediccion usuario = new Prediccion();
-			usuario.setId_Usuario(lista.get(i).getId_Usuario());
-			if(listaapuestasuser.size()>0) {
-				for(int j=0;j<listaapuestasuser.size();j++) {
-					if(listaapuestasuser.get(j).getId_Usuario().equals(usuario.getId_Usuario())) {
-						total = listaapuestasuser.get(j).getPuntos() + lista.get(i).getPuntos();
-						listaapuestasuser.get(j).setPuntos(total);
-					}else {
-						usuario.setPuntos(lista.get(i).getPuntos());
-						listaapuestasuser.add(usuario);
+			if(lista.get(i).getId_Usuario()!=null) {
+				Long total =0L;
+				Prediccion usuario = new Prediccion();
+				usuario.setId_Usuario(lista.get(i).getId_Usuario());
+				if(listaapuestasuser.size()>0) {
+					for(int j=0;j<listaapuestasuser.size();j++) {
+						if(listaapuestasuser.get(j).getId_Usuario().equals(usuario.getId_Usuario())) {
+							total = listaapuestasuser.get(j).getPuntos() + lista.get(i).getPuntos();
+							listaapuestasuser.get(j).setPuntos(total);
+						}else {
+							usuario.setPuntos(lista.get(i).getPuntos());
+							listaapuestasuser.add(usuario);
+						}
 					}
+				}else {
+					usuario.setPuntos(lista.get(i).getPuntos());
+					listaapuestasuser.add(usuario);
 				}
-			}else {
-				usuario.setPuntos(lista.get(i).getPuntos());
-				listaapuestasuser.add(usuario);
+			
 			}
-			
-			
 			
 		}
 		return listaapuestasuser;		
