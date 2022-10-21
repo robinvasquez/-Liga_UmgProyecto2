@@ -19,22 +19,23 @@ import com.ligas.api.Controller.*;
 public class PartidoController {
 	@Autowired
 	private PartidoRepository PartidoRepositorys;
-	private PartidoliveController partidolivecontroller= new PartidoliveController() ;
 	
 	@GetMapping("/partido")
 	public List<Partido> allPersons(){
 		return PartidoRepositorys.findAll();
 	}
-	@GetMapping("/partido/{idpartido}")
-	public Partido getPartido(@PathVariable Long idpartido) {
-		Partido Partido= new Partido();
-		List<Partido> lista =allPersons();
-		for(int i=0;i<lista.size();i++) {
-			if(lista.get(i).getId_Partido()==idpartido) {
-				Partido=lista.get(i);
+	
+	@GetMapping("/partido/{id_partido}")
+	public Partido getPartido(@PathVariable Integer id_partido) {
+		//Long val=id_partido.longValue();
+		Partido p= new Partido();
+		List<Partido> listp =allPersons();
+		for(int i=0;i<listp.size();i++) {
+			if(listp.get(i).getId_Partido().equals(id_partido)) {
+				p=listp.get(i);
 			}
 		}
-		return Partido;		
+		return p;		
 	}
 	@PostMapping("/partido")
 	public Partido createPerson(@RequestBody Partido Partido) {
@@ -49,11 +50,11 @@ public class PartidoController {
 	} 
 
 	@PostMapping("/partido/{id_partido}")
-	public Partido updatepartido(@PathVariable Long id_partido ,@RequestBody Partido partido) {
+	public Partido updatepartido(@PathVariable Integer id_partido ,@RequestBody Partido partido) {
 		Partido p= new Partido();
 		List<Partido> listp =allPersons();
 		for(int i=0;i<listp.size();i++) {
-			if(listp.get(i).getId_Partido()==id_partido) {
+			if(listp.get(i).getId_Partido().equals(id_partido)) {
 				p=listp.get(i);
 			}
 		}

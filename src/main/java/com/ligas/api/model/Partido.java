@@ -1,4 +1,6 @@
 package com.ligas.api.model;
+import java.math.BigInteger;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -14,7 +16,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Partido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_Partido;
+	private Integer id_Partido;
 	
 	@Column(name = "paisA")
 	private String paisA;
@@ -34,27 +36,34 @@ public class Partido {
 	@Column(name = "hora")
 	private String hora;
 	
+	@Column(name = "estado")
+	private Integer estado;
+	
+
+
 	public Partido() {
 	}
 	
-	public Partido(Long id_Partido,String paisA,String paisB,String fecha,String hora) {
+	public Partido(Integer id_Partido,String paisA,String paisB,String fecha,String hora, Integer estado) {
 		this.id_Partido=id_Partido;
 		this.paisA =paisA ;
 		this.paisB = paisB;
 		this.fecha =fecha ;
 		this.hora = hora;
+		this.estado = estado;
 	}
 	public Partido(String paisA,String paisB,String fecha,String hora) {
 		this.paisA =paisA ;
 		this.paisB = paisB;
 		this.fecha =fecha ;
 		this.hora = hora;
+		this.estado=0;
 	}
-	public Long getId_Partido() {
+	public Integer getId_Partido() {
 		return id_Partido;
 	}
 
-	public void setId_Partido(Long id_Partido) {
+	public void setId_Partido(Integer id_Partido) {
 		this.id_Partido = id_Partido;
 	}
 
@@ -105,10 +114,17 @@ public class Partido {
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
+	public Integer getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Integer estado) {
+		this.estado = estado;
+	}
 	
 	@Override
 	public String toString() {
-		return "Partido [id_Partido=" + id_Partido + ", paisA=" + paisA + ", paisbB=" + paisB + ", fecha=" + fecha + ", hora=" + hora
+		return "Partido [id_Partido=" + id_Partido + ", paisA=" + paisA + ", paisbB=" + paisB + ", fecha=" + fecha + ", hora=" + hora + ", estado=" + estado
 				+ "]";
 	}
 	
