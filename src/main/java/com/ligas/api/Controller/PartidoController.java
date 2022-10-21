@@ -48,9 +48,19 @@ public class PartidoController {
 		
 	} 
 
-	@PutMapping("/partido/{id_partido}")
+	@PostMapping("/partido/{id_partido}")
 	public Partido updatepartido(@PathVariable Long id_partido ,@RequestBody Partido partido) {
-		return PartidoRepositorys.save(partido);
+		Partido p= new Partido();
+		List<Partido> listp =allPersons();
+		for(int i=0;i<listp.size();i++) {
+			if(listp.get(i).getId_Partido()==id_partido) {
+				p=listp.get(i);
+			}
+		}
+		p.setResA(partido.getResA());
+		p.setResB(partido.getResB());
+
+		return PartidoRepositorys.save(p);
 	}
 	
 }
